@@ -1,5 +1,3 @@
-# app/controllers/quote_controller.py
-
 from flask import jsonify, request
 from app.models.quote_model import QuoteModel
 

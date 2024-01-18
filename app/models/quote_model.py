@@ -1,3 +1,4 @@
+from datetime import datetime
 from pymongo import MongoClient
 import certifi
 
@@ -20,8 +21,13 @@ class QuoteModel:
 
     @staticmethod
     def store_order(instrument_identifier, quantity):
+        # Get LTP at the time of the order
+        ltp = QuoteModel.get_last_trade_price(instrument_identifier)
+
         order = {
             'InstrumentIdentifier': instrument_identifier,
-            'Quantity': quantity
+            'Quantity': quantity,
+            'LTP': ltp,
+            'OrderTime': datetime.now()
         }
         order_collection.insert_one(order)

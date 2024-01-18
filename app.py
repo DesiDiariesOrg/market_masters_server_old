@@ -1,5 +1,3 @@
-# app.py
-
 from app import app
 from app.controllers.quote_controller import QuoteController
 from flask import request
