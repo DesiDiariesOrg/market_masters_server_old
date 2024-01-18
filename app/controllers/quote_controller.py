@@ -13,7 +13,7 @@ class QuoteController:
         return jsonify({'instrument_identifiers': identifiers})
 
     @staticmethod
-    def store_order():
+    def buy_order():
         data = request.get_json()
         instrument_identifier = data.get('instrument_identifier')
         quantity = data.get('quantity')
@@ -21,5 +21,5 @@ class QuoteController:
         if not instrument_identifier or not quantity:
             return jsonify({'error': 'Instrument Identifier and Quantity are required'}), 400
 
-        QuoteModel.store_order(instrument_identifier, quantity)
+        QuoteModel.buy_order(instrument_identifier, quantity)
         return jsonify({'success': 'Order stored successfully'}), 201

@@ -20,7 +20,7 @@ class QuoteModel:
         return [doc['InstrumentIdentifier'] for doc in cursor]
 
     @staticmethod
-    def store_order(instrument_identifier, quantity):
+    def buy_order(instrument_identifier, quantity):
         # Get LTP at the time of the order
         ltp = QuoteModel.get_last_trade_price(instrument_identifier)
 

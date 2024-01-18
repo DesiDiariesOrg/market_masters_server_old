@@ -12,9 +12,9 @@ def get_ltp():
 def get_all_instrument_identifiers():
     return QuoteController.get_all_instrument_identifiers()
 
-@app.route('/store_order', methods=['POST'])
-def store_order():
-    return QuoteController.store_order()
+@app.route('/buy_order', methods=['POST'])
+def buy_order():
+    return QuoteController.buy_order()
 
 if __name__ == '__main__':
     app.run(debug=True)
